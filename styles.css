@@ -1,15 +1,15 @@
-/* styles.css - فكسو (RTL) */
+/* styles.css - فكسو (تصميم داكن بهوية البراند) */
 
 :root {
   --container: 1100px;
-  --accent: #0b1535;        /* كحلي داكن من الشعار */
-  --accent-soft: #3ca7b0;   /* تركواز */
-  --accent-soft2: #b68484;  /* موڤ مائل للنحاسي */
-  --muted: #6b7280;
-  --bg: #f4f6fb;
-  --card: #ffffff;
-  --radius: 12px;
-  --font: 'Cairo', system-ui, sans-serif;
+  --navy: #0b1535;      /* الأزرق الكحلي من الشعار */
+  --navy-deep: #050816; /* خلفية داكنة */
+  --teal: #2fa7b3;      /* تركواز */
+  --mauve: #b57c82;     /* موف/نحاسي */
+  --muted: #9ca3af;
+  --card: #0f172a;
+  --radius: 14px;
+  --font: "Cairo", system-ui, sans-serif;
 }
 
 * {
@@ -24,14 +24,12 @@ body {
 body {
   margin: 0;
   font-family: var(--font);
-  background: var(--bg);
-  color: #0f1724;
+  background: var(--navy-deep);
+  color: #e5e7eb;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Container */
 .container {
   max-width: var(--container);
   margin: 0 auto;
@@ -40,18 +38,19 @@ body {
 
 /* Header */
 .site-header {
-  background: #ffffff;
-  box-shadow: 0 2px 10px rgba(15, 23, 36, 0.06);
+  background: rgba(5, 8, 22, 0.96);
+  border-bottom: 1px solid rgba(47, 167, 179, 0.4);
   position: sticky;
   top: 0;
-  z-index: 10;
+  z-index: 20;
+  backdrop-filter: blur(10px);
 }
 
 .header-grid {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 14px 24px;
+  padding: 12px 24px;
 }
 
 .brand {
@@ -60,9 +59,8 @@ body {
   gap: 10px;
 }
 
-/* حجم الشعار في الهيدر */
 .logo {
-  height: 52px;   /* أكبر شوي عشان يكون واضح */
+  height: 60px; /* أكبر شوي */
   width: auto;
   display: block;
 }
@@ -70,7 +68,7 @@ body {
 .brand-text h1 {
   margin: 0;
   font-size: 20px;
-  color: var(--accent);
+  color: #f9fafb;
 }
 
 .brand-text .tag {
@@ -82,54 +80,77 @@ body {
 .main-nav a {
   margin-left: 18px;
   text-decoration: none;
-  color: var(--muted);
+  color: #e5e7eb;
   font-weight: 600;
   font-size: 14px;
 }
 
 .main-nav a:hover {
-  color: var(--accent-soft);
+  color: var(--teal);
 }
 
 .lang-switch {
   border-radius: 999px;
-  border: 1px solid rgba(60, 167, 176, 0.4);
+  border: 1px solid rgba(47, 167, 179, 0.5);
   padding: 4px 10px;
   font-size: 12px;
 }
 
 /* Hero */
 .hero {
-  padding: 56px 0 48px;
-  background: radial-gradient(circle at top left, rgba(60, 167, 176, 0.2), transparent 50%),
-              radial-gradient(circle at bottom right, rgba(182, 132, 132, 0.22), transparent 55%),
-              #eef2ff;
+  position: relative;
+  padding: 72px 0 56px;
+  color: #f9fafb;
+  background:
+    linear-gradient(135deg, rgba(11, 21, 53, 0.9), rgba(5, 8, 22, 0.95)),
+    url("assets/hero.jpg") center/cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at top left, rgba(47, 167, 179, 0.35), transparent 55%),
+    radial-gradient(circle at bottom right, rgba(181, 124, 130, 0.45), transparent 55%);
+  mix-blend-mode: soft-light;
+}
+
+.hero > .container {
+  position: relative;
+  z-index: 1;
 }
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.3fr 0.9fr;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 28px;
   align-items: center;
 }
 
 .hero-kicker {
   font-size: 13px;
-  color: var(--accent-soft);
+  color: var(--teal);
   font-weight: 700;
-  letter-spacing: 0.05em;
-  margin: 0 0 6px;
+  letter-spacing: 0.08em;
+  margin: 0 0 8px;
 }
 
 .hero-text h2 {
-  font-size: 30px;
-  margin: 0 0 10px;
-  color: var(--accent);
+  font-size: 32px;
+  margin: 0 0 12px;
 }
 
-.hero-text p {
-  color: var(--muted);
+.hero-desc {
+  margin: 0 0 12px;
+  color: #e5e7eb;
+}
+
+.hero-bullets {
   margin: 0 0 18px;
+  padding-left: 18px;
+  color: #d1d5db;
+  font-size: 14px;
 }
 
 .hero-note-en {
@@ -142,93 +163,136 @@ body {
   margin-left: 10px;
 }
 
-.hero-card {
-  background: var(--card);
+/* صورة الهيرو */
+.hero-image-card {
+  position: relative;
+}
+
+.hero-image {
+  width: 100%;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(11, 21, 53, 0.12);
-  padding: 20px;
-  border: 1px solid rgba(60, 167, 176, 0.12);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  object-fit: cover;
+  max-height: 320px;
 }
 
-.card-inner h3 {
-  margin-top: 0;
-  color: var(--accent);
+.hero-badge {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(5, 8, 22, 0.9);
+  border-radius: 999px;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(47, 167, 179, 0.7);
 }
 
-.card-inner ul {
-  margin: 12px 0;
-  padding-left: 18px;
+.hero-badge span {
+  font-weight: 700;
+  color: var(--teal);
+  font-size: 18px;
 }
 
-.card-inner ul li {
-  font-size: 14px;
+.hero-badge p {
+  margin: 0;
+  font-size: 12px;
+  color: #e5e7eb;
 }
 
 /* Sections */
 .section {
-  padding: 40px 0;
+  padding: 44px 0;
+}
+
+.section-header {
+  max-width: 680px;
+  margin-bottom: 24px;
 }
 
 .section-title {
   font-size: 22px;
   margin-bottom: 6px;
-  color: var(--accent);
+  color: #f9fafb;
 }
 
 .section-subtitle {
-  margin: 0 0 18px;
+  margin: 0;
   color: var(--muted);
   font-size: 14px;
 }
 
-/* Services Grid */
+/* خلفيات الأقسام */
+.why {
+  background: radial-gradient(circle at top, rgba(47, 167, 179, 0.18), transparent 60%), var(--navy-deep);
+}
+
+.services {
+  background: linear-gradient(135deg, #050816, #0b1535);
+}
+
+.clients {
+  background: radial-gradient(circle at bottom, rgba(181, 124, 130, 0.23), transparent 60%), #050a18;
+}
+
+.about {
+  background: linear-gradient(135deg, #050816, #0b1535);
+}
+
+.contact {
+  background: radial-gradient(circle at top, rgba(47, 167, 179, 0.2), transparent 60%), #050816;
+}
+
+/* Cards */
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 
-.service-card {
+.info-card,
+.service-card,
+.client-card {
   background: var(--card);
   padding: 18px;
-  border-radius: 14px;
-  box-shadow: 0 6px 18px rgba(15, 23, 36, 0.04);
-  border: 1px solid rgba(192, 203, 229, 0.6);
+  border-radius: var(--radius);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(148, 163, 184, 0.5);
   transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
 }
 
-.service-card:hover {
+.info-card:hover,
+.service-card:hover,
+.client-card:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 26px rgba(15, 23, 36, 0.08);
-  border-color: rgba(60, 167, 176, 0.6);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.7);
+  border-color: rgba(47, 167, 179, 0.9);
 }
 
 .service-card .icon {
-  font-size: 28px;
+  font-size: 26px;
   margin-bottom: 8px;
 }
 
-.service-card h3 {
+.info-card h3,
+.service-card h3,
+.client-card h3 {
   margin: 0 0 6px;
   font-size: 17px;
-  color: var(--accent);
+  color: #f9fafb;
 }
 
-.service-card p {
+.info-card p,
+.service-card p,
+.client-card p {
   margin: 0;
   font-size: 14px;
-  color: var(--muted);
+  color: #cbd5e1;
 }
 
-/* Clients */
-.clients-grid .client-card {
-  background: var(--card);
-  padding: 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(192, 203, 229, 0.6);
-}
-
-/* About Section */
+/* About */
 .about-grid {
   display: flex;
   gap: 24px;
@@ -241,29 +305,29 @@ body {
 }
 
 .about-logo {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
-/* حجم الشعار في قسم "عن فكسو" */
 .about-logo-img {
-  height: 64px;
+  height: 72px;
   width: auto;
   display: block;
 }
 
 .about-left h2 {
   margin-top: 0;
-  color: var(--accent);
+  color: #f9fafb;
 }
 
 .about-left p {
-  margin-top: 4px;
-  color: var(--muted);
+  margin-top: 6px;
+  color: #e5e7eb;
 }
 
 .about-left ul {
   margin: 10px 0 0;
   padding-left: 18px;
+  color: #d1d5db;
 }
 
 .stats {
@@ -274,30 +338,39 @@ body {
 }
 
 .stat {
-  background: var(--card);
+  background: rgba(15, 23, 42, 0.96);
   padding: 16px 14px;
-  border-radius: 14px;
+  border-radius: var(--radius);
   text-align: center;
   min-width: 100px;
-  border: 1px solid rgba(192, 203, 229, 0.7);
+  border: 1px solid rgba(148, 163, 184, 0.8);
 }
 
 .stat h3 {
   margin: 0;
   font-size: 20px;
-  color: var(--accent-soft);
+  color: var(--teal);
 }
 
 .stat p {
   margin: 4px 0 0;
   font-size: 13px;
-  color: var(--muted);
+  color: #e5e7eb;
 }
 
 /* Contact */
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 20px;
+}
+
 .contact form {
-  max-width: 720px;
-  margin-bottom: 18px;
+  background: rgba(15, 23, 42, 0.96);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(47, 167, 179, 0.5);
 }
 
 .contact label {
@@ -312,21 +385,45 @@ body {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #e1e7f2;
+  border: 1px solid #1f2937;
   margin-top: 6px;
-  background: #fff;
+  background: #020617;
+  color: #f9fafb;
   font-family: var(--font);
 }
 
 .contact input:focus,
 .contact textarea:focus {
   outline: none;
-  border-color: var(--accent-soft);
-  box-shadow: 0 0 0 1px rgba(60, 167, 176, 0.25);
+  border-color: var(--teal);
+  box-shadow: 0 0 0 1px rgba(47, 167, 179, 0.6);
 }
 
 .form-row {
   margin-top: 10px;
+}
+
+.contact-info-box {
+  background: rgba(15, 23, 42, 0.9);
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+}
+
+.contact-info-box h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #f9fafb;
+}
+
+.contact-info-box a {
+  color: var(--teal);
+  text-decoration: none;
+}
+
+.contact-info-box a:hover {
+  text-decoration: underline;
 }
 
 /* Buttons */
@@ -342,22 +439,22 @@ body {
 }
 
 .btn.primary {
-  background: var(--accent);
-  color: #ffffff;
+  background: var(--teal);
+  color: var(--navy-deep);
 }
 
 .btn.primary:hover {
-  background: #050814;
+  background: #24c0d0;
 }
 
 .btn.ghost {
   background: transparent;
-  border-color: rgba(60, 167, 176, 0.4);
-  color: var(--accent-soft);
+  border-color: rgba(47, 167, 179, 0.7);
+  color: var(--teal);
 }
 
 .btn.ghost:hover {
-  background: rgba(60, 167, 176, 0.06);
+  background: rgba(47, 167, 179, 0.15);
 }
 
 .btn.small {
@@ -380,16 +477,17 @@ body {
   font-size: 22px;
   text-decoration: none;
   color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-  z-index: 20;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+  z-index: 40;
 }
 
 /* Footer */
 .site-footer {
-  background: #050814;
+  background: #020617;
   color: #cbd5e1;
   padding: 26px 0 18px;
-  margin-top: 32px;
+  margin-top: 0;
+  border-top: 1px solid rgba(15, 23, 42, 0.9);
 }
 
 .footer-grid {
@@ -414,7 +512,7 @@ body {
   text-align: center;
   padding: 10px 0 0;
   font-size: 13px;
-  color: #9aa4b2;
+  color: #9ca3af;
 }
 
 /* Responsive */
@@ -423,8 +521,10 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .about-grid {
+  .about-grid,
+  .contact-grid {
     flex-direction: column;
+    display: block;
   }
 
   .header-grid {
