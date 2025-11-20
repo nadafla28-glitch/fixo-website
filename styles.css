@@ -1,13 +1,15 @@
-/* styles.css - فكسو (تصميم داكن بهوية البراند) */
+/* styles.css - فكسو بتصميم فاتح وهوية الكحلي + التركواز */
 
 :root {
   --container: 1100px;
   --navy: #0b1535;      /* الأزرق الكحلي من الشعار */
-  --navy-deep: #050816; /* خلفية داكنة */
+  --navy-soft: #102347;
   --teal: #2fa7b3;      /* تركواز */
   --mauve: #b57c82;     /* موف/نحاسي */
-  --muted: #9ca3af;
-  --card: #0f172a;
+  --muted: #6b7280;
+  --muted-soft: #9ca3af;
+  --bg: #f5f7fb;
+  --card: #ffffff;
   --radius: 14px;
   --font: "Cairo", system-ui, sans-serif;
 }
@@ -24,8 +26,8 @@ body {
 body {
   margin: 0;
   font-family: var(--font);
-  background: var(--navy-deep);
-  color: #e5e7eb;
+  background: var(--bg);
+  color: #111827;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
@@ -38,12 +40,12 @@ body {
 
 /* Header */
 .site-header {
-  background: rgba(5, 8, 22, 0.96);
-  border-bottom: 1px solid rgba(47, 167, 179, 0.4);
+  background: #ffffff;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
   position: sticky;
   top: 0;
   z-index: 20;
-  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 18px rgba(15, 23, 42, 0.04);
 }
 
 .header-grid {
@@ -60,7 +62,7 @@ body {
 }
 
 .logo {
-  height: 60px; /* أكبر شوي */
+  height: 56px; /* أكبر شوي لكن مناسب */
   width: auto;
   display: block;
 }
@@ -68,19 +70,19 @@ body {
 .brand-text h1 {
   margin: 0;
   font-size: 20px;
-  color: #f9fafb;
+  color: var(--navy);
 }
 
 .brand-text .tag {
   margin: 0;
   font-size: 12px;
-  color: var(--muted);
+  color: var(--muted-soft);
 }
 
 .main-nav a {
   margin-left: 18px;
   text-decoration: none;
-  color: #e5e7eb;
+  color: var(--muted);
   font-weight: 600;
   font-size: 14px;
 }
@@ -91,7 +93,7 @@ body {
 
 .lang-switch {
   border-radius: 999px;
-  border: 1px solid rgba(47, 167, 179, 0.5);
+  border: 1px solid rgba(47, 167, 179, 0.4);
   padding: 4px 10px;
   font-size: 12px;
 }
@@ -99,21 +101,11 @@ body {
 /* Hero */
 .hero {
   position: relative;
-  padding: 72px 0 56px;
-  color: #f9fafb;
+  padding: 60px 0 56px;
   background:
-    linear-gradient(135deg, rgba(11, 21, 53, 0.9), rgba(5, 8, 22, 0.95)),
-    url("assets/hero.jpg") center/cover no-repeat;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(circle at top left, rgba(47, 167, 179, 0.35), transparent 55%),
-    radial-gradient(circle at bottom right, rgba(181, 124, 130, 0.45), transparent 55%);
-  mix-blend-mode: soft-light;
+    radial-gradient(circle at top left, rgba(47, 167, 179, 0.16), transparent 60%),
+    radial-gradient(circle at bottom right, rgba(181, 124, 130, 0.16), transparent 55%),
+    #f1f4ff;
 }
 
 .hero > .container {
@@ -139,55 +131,52 @@ body {
 .hero-text h2 {
   font-size: 32px;
   margin: 0 0 12px;
+  color: var(--navy);
 }
 
 .hero-desc {
-  margin: 0 0 12px;
-  color: #e5e7eb;
+  margin: 0 0 10px;
+  color: var(--muted);
 }
 
 .hero-bullets {
   margin: 0 0 18px;
   padding-left: 18px;
-  color: #d1d5db;
+  color: var(--muted);
   font-size: 14px;
-}
-
-.hero-note-en {
-  margin-top: 6px;
-  font-size: 12px;
-  color: #9ca3af;
 }
 
 .cta-row .btn {
   margin-left: 10px;
 }
 
-/* صورة الهيرو */
+/* hero image */
 .hero-image-card {
   position: relative;
 }
 
 .hero-image {
   width: 100%;
-  border-radius: 18px;
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.6);
+  border-radius: 22px;
+  border: 1px solid rgba(148, 163, 184, 0.4);
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
   object-fit: cover;
   max-height: 320px;
+  background: #e5e7eb;
 }
 
 .hero-badge {
   position: absolute;
   bottom: 12px;
   right: 12px;
-  background: rgba(5, 8, 22, 0.9);
+  background: #ffffff;
   border-radius: 999px;
   padding: 8px 14px;
   display: flex;
   align-items: center;
   gap: 10px;
-  border: 1px solid rgba(47, 167, 179, 0.7);
+  border: 1px solid rgba(47, 167, 179, 0.4);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
 }
 
 .hero-badge span {
@@ -199,7 +188,7 @@ body {
 .hero-badge p {
   margin: 0;
   font-size: 12px;
-  color: #e5e7eb;
+  color: var(--navy-soft);
 }
 
 /* Sections */
@@ -215,7 +204,7 @@ body {
 .section-title {
   font-size: 22px;
   margin-bottom: 6px;
-  color: #f9fafb;
+  color: var(--navy);
 }
 
 .section-subtitle {
@@ -224,75 +213,11 @@ body {
   font-size: 14px;
 }
 
-/* خلفيات الأقسام */
-.why {
-  background: radial-gradient(circle at top, rgba(47, 167, 179, 0.18), transparent 60%), var(--navy-deep);
-}
-
-.services {
-  background: linear-gradient(135deg, #050816, #0b1535);
-}
-
-.clients {
-  background: radial-gradient(circle at bottom, rgba(181, 124, 130, 0.23), transparent 60%), #050a18;
-}
-
-.about {
-  background: linear-gradient(135deg, #050816, #0b1535);
-}
-
-.contact {
-  background: radial-gradient(circle at top, rgba(47, 167, 179, 0.2), transparent 60%), #050816;
-}
-
-/* Cards */
-.cards-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
-}
-
-.info-card,
-.service-card,
-.client-card {
-  background: var(--card);
-  padding: 18px;
-  border-radius: var(--radius);
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.5);
-  border: 1px solid rgba(148, 163, 184, 0.5);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
-}
-
-.info-card:hover,
-.service-card:hover,
-.client-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.7);
-  border-color: rgba(47, 167, 179, 0.9);
-}
-
-.service-card .icon {
-  font-size: 26px;
-  margin-bottom: 8px;
-}
-
-.info-card h3,
-.service-card h3,
-.client-card h3 {
-  margin: 0 0 6px;
-  font-size: 17px;
-  color: #f9fafb;
-}
-
-.info-card p,
-.service-card p,
-.client-card p {
-  margin: 0;
-  font-size: 14px;
-  color: #cbd5e1;
-}
-
 /* About */
+.about {
+  background: #ffffff;
+}
+
 .about-grid {
   display: flex;
   gap: 24px;
@@ -309,25 +234,25 @@ body {
 }
 
 .about-logo-img {
-  height: 72px;
+  height: 64px;
   width: auto;
   display: block;
 }
 
 .about-left h2 {
   margin-top: 0;
-  color: #f9fafb;
+  color: var(--navy);
 }
 
 .about-left p {
   margin-top: 6px;
-  color: #e5e7eb;
+  color: var(--muted);
 }
 
 .about-left ul {
   margin: 10px 0 0;
   padding-left: 18px;
-  color: #d1d5db;
+  color: var(--muted);
 }
 
 .stats {
@@ -338,12 +263,13 @@ body {
 }
 
 .stat {
-  background: rgba(15, 23, 42, 0.96);
+  background: #f9fafb;
   padding: 16px 14px;
   border-radius: var(--radius);
   text-align: center;
   min-width: 100px;
-  border: 1px solid rgba(148, 163, 184, 0.8);
+  border: 1px solid rgba(148, 163, 184, 0.6);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
 }
 
 .stat h3 {
@@ -355,10 +281,70 @@ body {
 .stat p {
   margin: 4px 0 0;
   font-size: 13px;
-  color: #e5e7eb;
+  color: var(--muted);
+}
+
+/* Services */
+.services {
+  background: #f6f8ff;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 18px;
+}
+
+.service-card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: var(--radius);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  transition: transform 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.13);
+  border-color: rgba(47, 167, 179, 0.8);
+}
+
+.service-card .icon {
+  font-size: 26px;
+  margin-bottom: 8px;
+}
+
+.service-card h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.service-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* Clients */
+.clients {
+  background: #ffffff;
+}
+
+.clients-grid .client-card {
+  background: #ffffff;
+  padding: 18px;
+  border-radius: var(--radius);
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
 }
 
 /* Contact */
+.contact {
+  background: #f6f8ff;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
@@ -366,11 +352,11 @@ body {
 }
 
 .contact form {
-  background: rgba(15, 23, 42, 0.96);
+  background: #ffffff;
   padding: 20px;
   border-radius: var(--radius);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-  border: 1px solid rgba(47, 167, 179, 0.5);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+  border: 1px solid rgba(209, 213, 219, 0.9);
 }
 
 .contact label {
@@ -378,6 +364,7 @@ body {
   margin-bottom: 12px;
   font-weight: 600;
   font-size: 14px;
+  color: var(--navy-soft);
 }
 
 .contact input,
@@ -385,10 +372,10 @@ body {
   width: 100%;
   padding: 10px;
   border-radius: 8px;
-  border: 1px solid #1f2937;
+  border: 1px solid #d1d5db;
   margin-top: 6px;
-  background: #020617;
-  color: #f9fafb;
+  background: #ffffff;
+  color: #111827;
   font-family: var(--font);
 }
 
@@ -396,7 +383,7 @@ body {
 .contact textarea:focus {
   outline: none;
   border-color: var(--teal);
-  box-shadow: 0 0 0 1px rgba(47, 167, 179, 0.6);
+  box-shadow: 0 0 0 1px rgba(47, 167, 179, 0.4);
 }
 
 .form-row {
@@ -404,17 +391,17 @@ body {
 }
 
 .contact-info-box {
-  background: rgba(15, 23, 42, 0.9);
+  background: #ffffff;
   padding: 18px;
   border-radius: var(--radius);
-  border: 1px solid rgba(148, 163, 184, 0.6);
-  box-shadow: 0 8px 26px rgba(0, 0, 0, 0.55);
+  border: 1px solid rgba(209, 213, 219, 0.9);
+  box-shadow: 0 8px 26px rgba(15, 23, 42, 0.06);
 }
 
 .contact-info-box h3 {
   margin-top: 0;
   margin-bottom: 10px;
-  color: #f9fafb;
+  color: var(--navy);
 }
 
 .contact-info-box a {
@@ -440,7 +427,7 @@ body {
 
 .btn.primary {
   background: var(--teal);
-  color: var(--navy-deep);
+  color: #ffffff;
 }
 
 .btn.primary:hover {
@@ -454,7 +441,7 @@ body {
 }
 
 .btn.ghost:hover {
-  background: rgba(47, 167, 179, 0.15);
+  background: rgba(47, 167, 179, 0.1);
 }
 
 .btn.small {
@@ -462,32 +449,36 @@ body {
   font-size: 13px;
 }
 
-/* WhatsApp Floating Button */
+/* زر واتساب العائم */
 .whatsapp-float {
   position: fixed;
-  bottom: 18px;
-  left: 18px;
-  width: 46px;
-  height: 46px;
+  bottom: 20px;
+  left: 20px;
+  padding: 10px 20px;
   border-radius: 999px;
   background: #25d366;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 22px;
-  text-decoration: none;
-  color: #ffffff;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
   z-index: 40;
+}
+
+.wa-icon {
+  display: inline-block;
 }
 
 /* Footer */
 .site-footer {
-  background: #020617;
+  background: #0b1120;
   color: #cbd5e1;
   padding: 26px 0 18px;
   margin-top: 0;
-  border-top: 1px solid rgba(15, 23, 42, 0.9);
+  border-top: 1px solid rgba(15, 23, 42, 0.6);
 }
 
 .footer-grid {
@@ -521,10 +512,12 @@ body {
     grid-template-columns: 1fr;
   }
 
-  .about-grid,
-  .contact-grid {
+  .about-grid {
     flex-direction: column;
-    display: block;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 
   .header-grid {
@@ -540,5 +533,12 @@ body {
   .footer-grid {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .whatsapp-float {
+    left: 14px;
+    right: 14px;
+    width: auto;
+    justify-content: center;
   }
 }
