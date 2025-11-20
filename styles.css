@@ -1,14 +1,14 @@
-/* styles.css - فكسو بتصميم فاتح وهوية الكحلي + التركواز */
+/* styles.css - فكسو بتصميم فاتح وهيرو كحلي */
 
 :root {
   --container: 1100px;
   --navy: #0b1535;      /* الأزرق الكحلي من الشعار */
-  --navy-soft: #102347;
+  --navy-soft: #162549;
   --teal: #2fa7b3;      /* تركواز */
   --mauve: #b57c82;     /* موف/نحاسي */
   --muted: #6b7280;
   --muted-soft: #9ca3af;
-  --bg: #f5f7fb;
+  --bg: #f3f4f8;
   --card: #ffffff;
   --radius: 14px;
   --font: "Cairo", system-ui, sans-serif;
@@ -62,7 +62,7 @@ body {
 }
 
 .logo {
-  height: 56px; /* أكبر شوي لكن مناسب */
+  height: 56px;
   width: auto;
   display: block;
 }
@@ -98,26 +98,15 @@ body {
   font-size: 12px;
 }
 
-/* Hero */
+/* Hero (بدون صورة، خلفية كحلي) */
 .hero {
-  position: relative;
-  padding: 60px 0 56px;
-  background:
-    radial-gradient(circle at top left, rgba(47, 167, 179, 0.16), transparent 60%),
-    radial-gradient(circle at bottom right, rgba(181, 124, 130, 0.16), transparent 55%),
-    #f1f4ff;
+  padding: 64px 0 56px;
+  background: linear-gradient(135deg, #0b1535, #18294f);
+  color: #f9fafb;
 }
 
-.hero > .container {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-  gap: 28px;
-  align-items: center;
+.hero-single {
+  max-width: 640px;
 }
 
 .hero-kicker {
@@ -128,67 +117,25 @@ body {
   margin: 0 0 8px;
 }
 
-.hero-text h2 {
+.hero-single h2 {
   font-size: 32px;
   margin: 0 0 12px;
-  color: var(--navy);
 }
 
 .hero-desc {
   margin: 0 0 10px;
-  color: var(--muted);
+  color: #e5e7eb;
 }
 
 .hero-bullets {
   margin: 0 0 18px;
   padding-left: 18px;
-  color: var(--muted);
+  color: #d1d5db;
   font-size: 14px;
 }
 
 .cta-row .btn {
   margin-left: 10px;
-}
-
-/* hero image */
-.hero-image-card {
-  position: relative;
-}
-
-.hero-image {
-  width: 100%;
-  border-radius: 22px;
-  border: 1px solid rgba(148, 163, 184, 0.4);
-  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.15);
-  object-fit: cover;
-  max-height: 320px;
-  background: #e5e7eb;
-}
-
-.hero-badge {
-  position: absolute;
-  bottom: 12px;
-  right: 12px;
-  background: #ffffff;
-  border-radius: 999px;
-  padding: 8px 14px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  border: 1px solid rgba(47, 167, 179, 0.4);
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.16);
-}
-
-.hero-badge span {
-  font-weight: 700;
-  color: var(--teal);
-  font-size: 18px;
-}
-
-.hero-badge p {
-  margin: 0;
-  font-size: 12px;
-  color: var(--navy-soft);
 }
 
 /* Sections */
@@ -286,7 +233,7 @@ body {
 
 /* Services */
 .services {
-  background: #f6f8ff;
+  background: #f6f7fc;
 }
 
 .cards-grid {
@@ -340,9 +287,21 @@ body {
   box-shadow: 0 6px 18px rgba(15, 23, 42, 0.05);
 }
 
+.client-card h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+  color: var(--navy);
+}
+
+.client-card p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
 /* Contact */
 .contact {
-  background: #f6f8ff;
+  background: #f6f7fc;
 }
 
 .contact-grid {
@@ -508,8 +467,8 @@ body {
 
 /* Responsive */
 @media (max-width: 880px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
+  .hero-single {
+    max-width: 100%;
   }
 
   .about-grid {
