@@ -6,7 +6,7 @@
   --accent-soft: #3ca7b0;   /* تركواز */
   --accent-soft2: #b68484;  /* موڤ مائل للنحاسي */
   --muted: #6b7280;
-  --bg: #f7f9fc;
+  --bg: #f4f6fb;
   --card: #ffffff;
   --radius: 12px;
   --font: 'Cairo', system-ui, sans-serif;
@@ -60,9 +60,9 @@ body {
   gap: 10px;
 }
 
-/* هنا نتحكم في حجم اللوقو في الهيدر */
+/* حجم الشعار في الهيدر */
 .logo {
-  height: 40px;   /* صغّرنا الشعار */
+  height: 52px;   /* أكبر شوي عشان يكون واضح */
   width: auto;
   display: block;
 }
@@ -91,12 +91,19 @@ body {
   color: var(--accent-soft);
 }
 
+.lang-switch {
+  border-radius: 999px;
+  border: 1px solid rgba(60, 167, 176, 0.4);
+  padding: 4px 10px;
+  font-size: 12px;
+}
+
 /* Hero */
 .hero {
   padding: 56px 0 48px;
-  background: radial-gradient(circle at top left, rgba(60, 167, 176, 0.18), transparent 50%),
-              radial-gradient(circle at bottom right, rgba(182, 132, 132, 0.2), transparent 55%),
-              #f4f7ff;
+  background: radial-gradient(circle at top left, rgba(60, 167, 176, 0.2), transparent 50%),
+              radial-gradient(circle at bottom right, rgba(182, 132, 132, 0.22), transparent 55%),
+              #eef2ff;
 }
 
 .hero-grid {
@@ -123,6 +130,12 @@ body {
 .hero-text p {
   color: var(--muted);
   margin: 0 0 18px;
+}
+
+.hero-note-en {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #9ca3af;
 }
 
 .cta-row .btn {
@@ -207,6 +220,14 @@ body {
   color: var(--muted);
 }
 
+/* Clients */
+.clients-grid .client-card {
+  background: var(--card);
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(192, 203, 229, 0.6);
+}
+
 /* About Section */
 .about-grid {
   display: flex;
@@ -225,7 +246,7 @@ body {
 
 /* حجم الشعار في قسم "عن فكسو" */
 .about-logo-img {
-  height: 50px;
+  height: 64px;
   width: auto;
   display: block;
 }
@@ -344,6 +365,25 @@ body {
   font-size: 13px;
 }
 
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 18px;
+  left: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: #25d366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  text-decoration: none;
+  color: #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 20;
+}
+
 /* Footer */
 .site-footer {
   background: #050814;
@@ -402,4 +442,3 @@ body {
     align-items: flex-start;
   }
 }
-
